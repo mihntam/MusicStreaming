@@ -45,7 +45,7 @@
                 android:padding="8dp"
                 android:textColor="@color/black" />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
@@ -60,10 +60,11 @@
                     android:hint="Password"
                     android:inputType="textPassword"
                     android:padding="8dp"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    tools:ignore="MissingConstraints" />
 
                 <ImageView
-                    android:id="@+id/show_pass_btn"
+                    android:id="@+id/show_pass_button"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_alignParentRight="true"
@@ -72,11 +73,13 @@
                     android:alpha=".5"
                     android:onClick="ShowHidePass"
                     android:padding="5dp"
-                    android:src="@drawable/baseline_visibility_24"
+                    android:src="@drawable/baseline_visibility_on_24"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/laypass"
-                    app:layout_constraintTop_toTopOf="@+id/edit_password" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    app:layout_constraintEnd_toEndOf="@id/register_password"
+                    app:layout_constraintTop_toTopOf="@id/register_password"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
                 android:id="@+id/register_button"

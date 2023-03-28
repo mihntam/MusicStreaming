@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private EditText registerEmail, registerPassword;
     private Button registerButton;
+    private ImageView showPass;
     private TextView registerRedirectText;
 
     @Override
@@ -33,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         registerPassword = findViewById(R.id.register_password);
         registerButton = findViewById(R.id.register_button);
         registerRedirectText = findViewById(R.id.registerRedirectText);
+        showPass = findViewById(R.id.show_pass_button);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +68,24 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+            }
+        });
+
+        showPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(view.getId()==R.id.show_pass_button){
+                    if(registerPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())){
+                        ((ImageView)(view)).setImageResource(R.drawable.baseline_visibility_off_24);
+                        //Show Password
+                        registerPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    }
+                    else{
+                        ((ImageView)(view)).setImageResource(R.drawable.baseline_visibility_on_24);
+                        //Hide Password
+                        registerPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    }
+                }
             }
         });
 

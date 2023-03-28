@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private EditText loginEmail, loginPassword;
     private TextView loginRedirectText;
+    private ImageView showPass;
     private Button loginButton;
 
     @Override
@@ -34,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         loginPassword = findViewById(R.id.login_password);
         loginButton = findViewById(R.id.login_button);
         loginRedirectText = findViewById(R.id.loginRedirectText);
+        showPass  =findViewById(R.id.show_pass_button);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +76,23 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            }
+        });
+
+        showPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view.getId() == R.id.show_pass_button) {
+                    if (loginPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
+                        ((ImageView) (view)).setImageResource(R.drawable.baseline_visibility_off_24);
+                        //Show Password
+                        loginPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    } else {
+                        ((ImageView) (view)).setImageResource(R.drawable.baseline_visibility_on_24);
+                        //Hide Password
+                        loginPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    }
+                }
             }
         });
     }
