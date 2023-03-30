@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">Music Streaming</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="music1">Music1
+        \nAdele
+    </string>
+    <string name="music2">Music2
+        \nAdele
+    </string>
+    <string name="music3">Music3
+        \nAdele
+    </string>
+    <string name="music4">Music4
+        \nAdele
+    </string>
+    <string name="music5">Music5
+        \nAdele
+    </string>
+    <string name="music6">Music6
+        \nAdele
+    </string>
+    <string name="music7">Music7
+        \nAdele
+    </string>
 </resources>

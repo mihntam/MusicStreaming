@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/outline_home_24"
+        android:title="Home" />
+
+    <item
         android:id="@+id/bottom_search"
         android:icon="@drawable/baseline_search_24"
         android:title="Search" />
@@ -9,12 +14,7 @@
     <item
         android:id="@+id/bottom_favorite"
         android:icon="@drawable/outline_favorite_border_24"
-        android:title="Settings" />
-
-    <item
-        android:id="@+id/bottom_upload"
-        android:icon="@drawable/outline_cloud_upload_24"
-        android:title="Profile" />
+        android:title="Favorite" />
 
 
 </menu>
