@@ -1,26 +1,35 @@
 <resources>
-    <string name="app_name">Music Streaming</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="music1">Music1
-        \nAdele
-    </string>
-    <string name="music2">Music2
-        \nAdele
-    </string>
-    <string name="music3">Music3
-        \nAdele
-    </string>
-    <string name="music4">Music4
-        \nAdele
-    </string>
-    <string name="music5">Music5
-        \nAdele
-    </string>
-    <string name="music6">Music6
-        \nAdele
-    </string>
-    <string name="music7">Music7
-        \nAdele
-    </string>
+    <string name="app_name">mStream</string>
+    <string name="no_songs_selected">No songs selected</string>
+    <string name="library_header">Thư viện</string>
+    <string name="welcome_to_bitjam">Chào mừng đến với mStream.</string>
+    <string name="row_1_text">Tìm kiếm bài hát yêu thích của bạn.</string>
+    <string name="row_2_text">Dễ dàng lưu vào danh sách yêu thích.</string>
+    <string name="row_3_text">Nhàm chán? Thử tính năng trộn bài hát.</string>
+    <string name="heart_icon_desc">Heart Icon</string>
+    <string name="search_icon_desc">Search Icon</string>
+    <string name="mic_icon_desc">Microphone Icon</string>
+    <string name="shuffle_icon_desc">Shuffle Icon</string>
+    <string name="welc_btn_gradient_desc">Button Gradient</string>
+    <string name="welc_btn_face_desc">Button Face</string>
+    <string name="welc_btn_text">Bắt đầu!</string>
+    <string name="recycler_row_song_name">Không bài hát</string>
+    <string name="recycler_row_artist_name">Không ca sĩ</string>
+    <string name="recycler_row_cover_art_desc">Song/Album Cover Art</string>
+    <string name="play_button_desc">Play Button</string>
+    <string name="defaultTimeLabel">0:00</string>
+    <string name="previous_song">Previous Song</string>
+    <string name="next_song">Next Song</string>
+    <string name="loop">Loop</string>
+    <string name="loop_icon_desc">Loop Icon</string>
+    <string name="search_bar_desc">Tìm bài hát . . .</string>
+    <string name="queue">Hàng đợi</string>
+    <string name="playlist_instructions">Give your playlist a name.</string>
+    <string name="all_songs">Tất cả bài hát</string>
+    <string name="sign_in_disclaimer">Sử dụng Google để đăng nhập vào mStream</string>
+    <string name="hey">Xin chào!</string>
+    <string-array name="playlist_choices">
+        <item>Tạo mới Playlist</item>
+        <item>Thêm vào Playlist sẵn có</item>
+    </string-array>
 </resources>

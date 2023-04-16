@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="lavender">#8692F7</color>
+    <color name="bright_lavender">#9986F7</color>
+    <color name="white_lavender">#9895E5</color>
+    <color name="mauve">#B9ACF3</color>
+    <color name="brilliant_lavender">#D6BFFF</color>
+    <color name="pink_lace">#EFD7FC</color>
+    <color name="lavender_blush">#FFF0F5</color>
+    <color name="pinkGhost">#FFFFF9</color>
+
+    <color name="blueDeepNavy">#02052F</color>
+    <color name="blueAbyss">#050517</color>
+
+    <color name="maroon">#592020</color>
+    <color name="maroonPale">#968080</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <!--    custom color-->
-    <color name="lavender">#8692f7</color>
-    <color name="smoke">#d2d2d2</color>
-    <color name="grey">#504F53</color>
-    <color name="white_transparent">#80FFFFFF</color>
-    <color name="deep_lavender">#b661a0</color>
+    <color name="lightGrey">#D3D3D3</color>
+    <color name="grey">#212121</color>
+    <color name="transparent">#00000000</color>
 </resources>
