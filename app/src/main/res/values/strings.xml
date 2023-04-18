@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">mStream</string>
-    <string name="no_songs_selected">No songs selected</string>
+    <string name="no_songs_selected">Không có bài hát được chọn</string>
     <string name="library_header">Thư viện</string>
     <string name="welcome_to_bitjam">Chào mừng đến với mStream.</string>
     <string name="row_1_text">Tìm kiếm bài hát yêu thích của bạn.</string>
@@ -24,12 +24,12 @@
     <string name="loop_icon_desc">Loop Icon</string>
     <string name="search_bar_desc">Tìm bài hát . . .</string>
     <string name="queue">Hàng đợi</string>
-    <string name="playlist_instructions">Give your playlist a name.</string>
+    <string name="playlist_instructions">Đặt tên album.</string>
     <string name="all_songs">Tất cả bài hát</string>
     <string name="sign_in_disclaimer">Sử dụng Google để đăng nhập vào mStream</string>
     <string name="hey">Xin chào!</string>
     <string-array name="playlist_choices">
-        <item>Tạo mới Playlist</item>
-        <item>Thêm vào Playlist sẵn có</item>
+        <item>Tạo Album mới</item>
+        <item>Thêm vào Album sẵn có</item>
     </string-array>
 </resources>
