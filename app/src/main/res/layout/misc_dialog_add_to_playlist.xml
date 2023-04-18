@@ -12,7 +12,7 @@
         android:paddingStart="15dp"
         android:paddingTop="15dp"
         android:paddingBottom="10dp"
-        android:text="Thêm vào playlist sẵn có"
+        android:text="Thêm vào album sẵn có"
         android:textSize="24sp" />
 
     <androidx.recyclerview.widget.RecyclerView

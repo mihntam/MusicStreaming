@@ -181,7 +181,7 @@ public class PlayingViewModel extends ViewModel {
         int duration = mp.getDuration();
 
         if (duration == -1) {
-            throw new IllegalStateException(TAG + " MediaPlayer file URL is not valid.");
+            throw new IllegalStateException(TAG + " Url tệp hiện không đúng.");
         }
 
         return duration;

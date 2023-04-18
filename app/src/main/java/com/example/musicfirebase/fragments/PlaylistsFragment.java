@@ -41,13 +41,13 @@ public class PlaylistsFragment extends Fragment {
         @Override
         public void onAscendingOrderSelected() {
             playlistVM.getPlaylistsFromDb(Query.Direction.ASCENDING);
-            Misc.toast(requireView(), "Sorting by ascending!");
+            Misc.toast(requireView(), "Sắp xếp theo a-z!");
         }
 
         @Override
         public void onDescendingOrderSelected() {
             playlistVM.getPlaylistsFromDb(Query.Direction.DESCENDING);
-            Misc.toast(requireView(), "Sorting by descending!");
+            Misc.toast(requireView(), "Sắp xếp theo z-a!");
         }
     };
 
@@ -78,9 +78,10 @@ public class PlaylistsFragment extends Fragment {
         songVM = new ViewModelProvider(requireActivity()).get(SongViewModel.class);
 
         // update local cache with playlists from Firestore
-//        playlistVM.getPlaylistsFromDb(Query.Direction.ASCENDING);
+        // playlistVM.getPlaylistsFromDb(Query.Direction.ASCENDING);
 
         // When there is a change in playlists, update PlaylistAdapter
+        playlistVM.getPlaylistsFromDb(Query.Direction.ASCENDING);
         playlistVM.getPlaylists().observe(getViewLifecycleOwner(), playlists -> {
             playlistAdapter.updateWith(playlists);
             Anims.recyclerFall(B.playlistRecycler);

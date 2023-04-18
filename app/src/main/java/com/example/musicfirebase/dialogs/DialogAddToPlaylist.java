@@ -53,7 +53,7 @@ public class DialogAddToPlaylist extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setView(v)
-                .setNegativeButton("CLOSE",
+                .setNegativeButton("Thoát",
                         (dialog, which) -> dialog.dismiss());
 
         /* End building */

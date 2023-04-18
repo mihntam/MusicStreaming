@@ -122,6 +122,7 @@ public class PlayingFragment extends Fragment {
         @Override
         public void onAddToExistingPlaylistSelected() {
             boolean playlistsAreLoaded = !playlistVM.getPlaylists().getValue().isEmpty();
+            playlistVM.getPlaylistsFromDb(Query.Direction.ASCENDING);
 
             if (playlistsAreLoaded) {
                 playlistVM.getPlaylists().getValue();
@@ -247,7 +248,7 @@ public class PlayingFragment extends Fragment {
         B.playerRecycler.setAdapter(playerAdapter);
 
         String playingFromWhat = songVM.getSelectedPlaylist().getValue().getTitle();
-        B.playingFrom.setText(playingFromWhat.isEmpty() ? "All Songs" : playingFromWhat);
+        B.playingFrom.setText(playingFromWhat.isEmpty() ? "Thư viện" : playingFromWhat);
 
         return B.getRoot();
     }
