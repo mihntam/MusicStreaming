@@ -3,10 +3,10 @@
 
     <item
         android:id="@+id/SORT_ASCENDING"
-        android:title="Sort Ascending" />
+        android:title="A-Z" />
 
     <item
         android:id="@+id/SORT_DESCENDING"
-        android:title="Sort Descending" />
+        android:title="Z-A" />
 
 </menu>
