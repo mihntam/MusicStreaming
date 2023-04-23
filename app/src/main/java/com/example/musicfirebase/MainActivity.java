@@ -3,6 +3,7 @@ package com.example.musicfirebase;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.media.session.MediaSessionCompat;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
@@ -18,6 +19,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.Query;
 
 public class MainActivity extends AppCompatActivity {
+
+    private MediaSessionCompat.Token mMediaSessionToken;
 
     @Override
     protected void onStart() {
@@ -54,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNav, navHostFragment.getNavController());
     }
 
+    public void setMediaSessionCompatToken(MediaSessionCompat.Token token) {
+        mMediaSessionToken = token;
+    }
     /**
      *
      * Hide the annoying keyboard without a stupid long method!

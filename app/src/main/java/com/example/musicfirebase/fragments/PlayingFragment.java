@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.media.session.MediaSessionCompat;
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +47,8 @@ import java.util.Objects;
 
 public class PlayingFragment extends Fragment {
     private final String TAG = "(mStream)";
+
+    private MediaSessionCompat mMediaSessionCompat;
     private FragmentPlayerBinding B;
     private SongViewModel songVM;
     private PlayingViewModel playerVM;
@@ -189,7 +193,7 @@ public class PlayingFragment extends Fragment {
         }
     };
 
-    @SuppressLint("ClickableViewAccessibility")
+    @SuppressLint({"ClickableViewAccessibility", "FragmentLiveDataObserve"})
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -266,6 +270,66 @@ public class PlayingFragment extends Fragment {
             handler.removeCallbacks(updatingSeekBar);
             B.btnPlayPause.setImageResource(R.drawable.svg_btn_play);
         }
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+
+        mMediaSessionCompat = new MediaSessionCompat(requireContext(), "PlayingFragment");
+
+        // Enable callbacks from MediaButtons and TransportControls
+        mMediaSessionCompat.setFlags(MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS | MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
+
+        // Set an initial PlaybackState with ACTION_PLAY, so media buttons can start the player
+        PlaybackStateCompat.Builder stateBuilder = new PlaybackStateCompat.Builder().setActions(PlaybackStateCompat.ACTION_PLAY);
+        mMediaSessionCompat.setPlaybackState(stateBuilder.build());
+
+        // MySessionCallback has methods that handle callbacks from a media controller
+        mMediaSessionCompat.setCallback(new MySessionCallback());
+
+        // Set the session's token so that client activities can communicate with it
+        MediaSessionCompat.Token token = mMediaSessionCompat.getSessionToken();
+        ((MainActivity)requireActivity()).setMediaSessionCompatToken(token);
+    }
+
+    private class MySessionCallback extends MediaSessionCompat.Callback {
+
+        @Override
+        public void onPlay() {
+            // Play the media player
+        }
+
+        @Override
+        public void onPause() {
+            // Pause the media player
+        }
+
+        @Override
+        public void onStop() {
+            // Stop the media player
+        }
+
+        @Override
+        public void onSkipToNext() {
+            // Skip to the next media item
+        }
+
+        @Override
+        public void onSkipToPrevious() {
+            // Skip to the previous media item
+        }
+
+        @Override
+        public void onSeekTo(long pos) {
+            // Seek to a specific position in the media player
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mMediaSessionCompat.release();
     }
 
     private void onIsLoopingChange(boolean isLooping) {
@@ -381,5 +445,8 @@ public class PlayingFragment extends Fragment {
         @Override
         public void onPrepareLoad(Drawable placeHolderDrawable) {
         }
+
+
+
     };
 }
