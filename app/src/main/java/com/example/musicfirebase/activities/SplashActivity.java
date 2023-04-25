@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
         int uiOptions = View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
         decorView.setSystemUiVisibility(uiOptions);
 
-        ImageView logo = findViewById(R.id.bitjamLogo);
+        ImageView logo = findViewById(R.id.mStreamLogo);
         Animation fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
         Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
 
