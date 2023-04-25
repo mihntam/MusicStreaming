@@ -20,8 +20,6 @@ import com.google.firebase.firestore.Query;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MediaSessionCompat.Token mMediaSessionToken;
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -57,9 +55,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNav, navHostFragment.getNavController());
     }
 
-    public void setMediaSessionCompatToken(MediaSessionCompat.Token token) {
-        mMediaSessionToken = token;
-    }
+
     /**
      *
      * Hide the annoying keyboard without a stupid long method!

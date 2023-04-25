@@ -221,6 +221,4 @@ public class PlayingViewModel extends ViewModel {
         this.mListener = listener;
     }
 
-
-
 }
