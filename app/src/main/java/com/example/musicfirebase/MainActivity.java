@@ -2,6 +2,9 @@ package com.example.musicfirebase;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.view.View;
@@ -19,6 +22,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.Query;
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onStart() {
@@ -53,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
                 .findFragmentById(R.id.fragment_container);
         assert navHostFragment != null;
         NavigationUI.setupWithNavController(bottomNav, navHostFragment.getNavController());
+
+
     }
 
 
