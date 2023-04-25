@@ -1,10 +1,18 @@
 package com.example.musicfirebase.fragments;
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.media.MediaMetadata;
+import android.media.session.MediaController;
+import android.media.session.PlaybackState;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.media.session.MediaControllerCompat;
+import android.support.v4.media.session.MediaSessionCompat;
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +29,7 @@ import androidx.palette.graphics.Palette;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.musicfirebase.MainActivity;
+import com.example.musicfirebase.NotificationHelper;
 import com.example.musicfirebase.R;
 import com.example.musicfirebase.adapters.PlayerAdapter;
 import com.example.musicfirebase.utils.OnRecyclerClickListener;
@@ -54,6 +63,10 @@ public class PlayingFragment extends Fragment {
     private View mBottomSheet;
     private Handler handler;
     private Window ui;
+
+    private MediaSessionCompat mediaSession;
+    private MediaControllerCompat mediaController;
+    private NotificationHelper notificationHelper;
 
     // Listens to liking/un-liking song events
     private final SongViewModel.OnLikedListener onLikedListener = new SongViewModel.OnLikedListener() {
@@ -188,7 +201,7 @@ public class PlayingFragment extends Fragment {
         }
     };
 
-    @SuppressLint("ClickableViewAccessibility")
+    @SuppressLint({"ClickableViewAccessibility", "FragmentLiveDataObserve"})
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -249,13 +262,18 @@ public class PlayingFragment extends Fragment {
         String playingFromWhat = songVM.getSelectedPlaylist().getValue().getTitle();
         B.playingFrom.setText(playingFromWhat.isEmpty() ? "All Songs" : playingFromWhat);
 
+        // Initialize NotificationHelper
+        notificationHelper = new NotificationHelper(getActivity());
+
         return B.getRoot();
     }
+
 
     private void onCurrentSongChange(Song song) {
         playerVM.prepareSong(song);
         playerVM.play();
     }
+
 
     private void onIsPlayingChange(boolean isPlaying) {
         if (isPlaying) {
@@ -308,6 +326,7 @@ public class PlayingFragment extends Fragment {
         super.onResume();
         mNavBar.setVisibility(View.GONE);
 //        mBottomSheet.setVisibility(View.GONE);
+
     }
 
     private void updateUiFromSong(Song song) {

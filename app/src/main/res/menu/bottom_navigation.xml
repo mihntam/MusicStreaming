@@ -4,7 +4,7 @@
     <item
         android:enabled="true"
         android:id="@+id/nav_playlists"
-        android:icon="@drawable/svg_add_to_playlist"
+        android:icon="@drawable/svg_album"
         android:title="Album" />
 
     <item
