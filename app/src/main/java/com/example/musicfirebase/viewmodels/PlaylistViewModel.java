@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel;
 import com.example.musicfirebase.models.Playlist;
 import com.example.musicfirebase.utils.PureLiveData;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -33,22 +34,25 @@ public class PlaylistViewModel extends ViewModel {
     public void getPlaylistsFromDb(Query.Direction order) {
         db.collection("playlists")
                 .orderBy("title", order)
-                .get()
-                .addOnCompleteListener(task -> {
+                .addSnapshotListener((snapshot, error) -> {
+                    if (error != null) {
+                        Log.w(TAG, "Failed to grab playlists from Firestore", error);
+                        return;
+                    }
+
                     List<Playlist> tempPlaylists = new ArrayList<>();
 
-                    task.getResult().forEach(docSnap -> {
+                    for (DocumentSnapshot docSnap : snapshot.getDocuments()) {
                         Playlist playlist = new Playlist(
                                 docSnap.getId(),
                                 docSnap.getString("title"),
                                 (List<DocumentReference>) docSnap.get("songs"));
 
                         tempPlaylists.add(playlist);
-                    });
+                    }
 
                     myPlaylists.setValue(tempPlaylists);
-                })
-                .addOnFailureListener(e -> Log.w(TAG, "Failed to grab playlists from Firestore"));
+                });
     }
 
     /**
@@ -115,9 +119,6 @@ public class PlaylistViewModel extends ViewModel {
     }
 
     public LiveData<List<Playlist>> getPlaylists() {
-
-
-
         return myPlaylists;
     }
 }
