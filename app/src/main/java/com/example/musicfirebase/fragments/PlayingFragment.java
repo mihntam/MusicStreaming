@@ -1,22 +1,12 @@
 package com.example.musicfirebase.fragments;
 
 import android.annotation.SuppressLint;
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
-import android.media.MediaMetadata;
-import android.media.session.MediaController;
-import android.media.session.PlaybackState;
+
 import android.os.Bundle;
 import android.os.Handler;
-<<<<<<< HEAD
-=======
 
->>>>>>> main
-import android.support.v4.media.session.MediaControllerCompat;
-import android.support.v4.media.session.MediaSessionCompat;
-import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +23,6 @@ import androidx.palette.graphics.Palette;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.musicfirebase.MainActivity;
-import com.example.musicfirebase.NotificationHelper;
 import com.example.musicfirebase.R;
 import com.example.musicfirebase.adapters.PlayerAdapter;
 import com.example.musicfirebase.utils.OnRecyclerClickListener;

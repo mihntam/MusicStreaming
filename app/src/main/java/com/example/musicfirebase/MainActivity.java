@@ -12,6 +12,8 @@ import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
@@ -19,15 +21,16 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.musicfirebase.viewmodels.PlaylistViewModel;
 import com.example.musicfirebase.viewmodels.SongViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.firestore.Query;
 
 public class MainActivity extends AppCompatActivity {
 
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onStart() {
         super.onStart();
-
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -35,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_hub);
+
+        drawerLayout = findViewById(R.id.drawerLayout);
 
         SongViewModel songVM = new ViewModelProvider(this).get(SongViewModel.class);
         PlaylistViewModel playlistVM = new ViewModelProvider(this).get(PlaylistViewModel.class);
@@ -59,12 +64,18 @@ public class MainActivity extends AppCompatActivity {
         assert navHostFragment != null;
         NavigationUI.setupWithNavController(bottomNav, navHostFragment.getNavController());
 
+        NavigationView navigationView = findViewById(R.id.drawer_view);
+        navigationView.setNavigationItemSelectedListener(item -> {
+            // Handle navigation item clicks here
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return true;
+        });
+
     }
 
-
     /**
-     *
      * Hide the annoying keyboard without a stupid long method!
+     *
      * @param v The current view
      */
     public static void hideKeyboardIn(View v) {
