@@ -40,7 +40,7 @@ public class SongViewModel extends ViewModel {
                                 doc.getString("artist"),
                                 doc.getString("fileUrl"),
                                 doc.getString("coverUrl"),
-                                doc.getBoolean("isLiked")
+                                Boolean.TRUE.equals(doc.getBoolean("isLiked"))
                         );
                         tempSongs.add(song);
                     });

@@ -75,7 +75,7 @@ public class LibraryFragment extends Fragment {
 
         // ViewModels
         songVM = new ViewModelProvider(requireActivity()).get(SongViewModel.class);
-        songVM.getSongsFromDb();
+//        songVM.getSongsFromDb();
 
         // Observers
         songVM.getSongs().observe(getViewLifecycleOwner(), songs -> {

@@ -2,6 +2,8 @@ package com.example.musicfirebase.viewmodels;
 
 import android.util.Log;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.musicfirebase.models.Playlist;
@@ -17,7 +19,7 @@ import java.util.List;
 public class PlaylistViewModel extends ViewModel {
     private final String TAG = "(mStream)";
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private final PureLiveData<List<Playlist>> myPlaylists = new PureLiveData<>(new ArrayList<>());
+    private final MutableLiveData<List<Playlist>> myPlaylists = new PureLiveData<>(new ArrayList<>());
 
     /**
      * Fetch all the playlists from Firestore and save it into myPlaylists.
@@ -112,7 +114,10 @@ public class PlaylistViewModel extends ViewModel {
                         "Xóa thất bại " + docRef + " từ Firestore", e));
     }
 
-    public PureLiveData<List<Playlist>> getPlaylists() {
+    public LiveData<List<Playlist>> getPlaylists() {
+
+
+
         return myPlaylists;
     }
 }

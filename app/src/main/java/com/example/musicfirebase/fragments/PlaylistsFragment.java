@@ -81,7 +81,7 @@ public class PlaylistsFragment extends Fragment {
         // playlistVM.getPlaylistsFromDb(Query.Direction.ASCENDING);
 
         // When there is a change in playlists, update PlaylistAdapter
-        playlistVM.getPlaylistsFromDb(Query.Direction.ASCENDING);
+        // playlistVM.getPlaylistsFromDb(Query.Direction.ASCENDING);
         playlistVM.getPlaylists().observe(getViewLifecycleOwner(), playlists -> {
             playlistAdapter.updateWith(playlists);
             Anims.recyclerFall(B.playlistRecycler);
