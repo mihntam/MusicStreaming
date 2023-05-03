@@ -10,10 +10,8 @@ import android.media.session.MediaController;
 import android.media.session.PlaybackState;
 import android.os.Bundle;
 import android.os.Handler;
-<<<<<<< HEAD
-=======
+
 import android.support.v4.media.session.MediaControllerCompat;
->>>>>>> dev
 import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
@@ -67,9 +65,8 @@ public class PlayingFragment extends Fragment {
     private Handler handler;
     private Window ui;
 
-    private MediaSessionCompat mediaSession;
-    private MediaControllerCompat mediaController;
-    private NotificationHelper notificationHelper;
+
+   q
 
     // Listens to liking/un-liking song events
     private final SongViewModel.OnLikedListener onLikedListener = new SongViewModel.OnLikedListener() {
@@ -266,8 +263,7 @@ public class PlayingFragment extends Fragment {
         String playingFromWhat = songVM.getSelectedPlaylist().getValue().getTitle();
         B.playingFrom.setText(playingFromWhat.isEmpty() ? "Thư viện" : playingFromWhat);
 
-        // Initialize NotificationHelper
-        notificationHelper = new NotificationHelper(getActivity());
+
 
         return B.getRoot();
     }

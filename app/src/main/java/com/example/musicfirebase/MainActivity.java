@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         int uiOptions = View.SYSTEM_UI_FLAG_IMMERSIVE |
                 View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR |
                 View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+
         Window window = getWindow();
         View decorView = window.getDecorView();
         window.setNavigationBarColor(getColor(R.color.white));
@@ -57,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 .findFragmentById(R.id.fragment_container);
         assert navHostFragment != null;
         NavigationUI.setupWithNavController(bottomNav, navHostFragment.getNavController());
-
 
     }
 
