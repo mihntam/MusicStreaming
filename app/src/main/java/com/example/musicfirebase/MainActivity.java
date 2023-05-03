@@ -2,19 +2,19 @@ package com.example.musicfirebase;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.media.session.MediaSessionCompat;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
@@ -65,10 +65,36 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNav, navHostFragment.getNavController());
 
         NavigationView navigationView = findViewById(R.id.drawer_view);
-        navigationView.setNavigationItemSelectedListener(item -> {
-            // Handle navigation item clicks here
-            drawerLayout.closeDrawer(GravityCompat.START);
-            return true;
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                // Handle navigation item clicks here
+                drawerLayout.closeDrawer(GravityCompat.START);
+
+                NavController navController = NavHostFragment.findNavController(navHostFragment);
+
+                switch (item.getItemId()){
+                    case R.id.drawer_album:
+                        navController.navigate(R.id.nav_playlists);
+                        Toast.makeText(MainActivity.this, "Album clicked", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.drawer_library:
+                        navController.navigate(R.id.nav_library);
+                        Toast.makeText(MainActivity.this, "Library clicked", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.drawer_like:
+                        navController.navigate(R.id.nav_liked);
+                        Toast.makeText(MainActivity.this, "Like clicked", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.drawer_logout:
+                        Toast.makeText(MainActivity.this, "Logout clicked", Toast.LENGTH_SHORT).show();
+                        return true;
+                    default:
+                        return false;
+                }
+
+            }
         });
 
     }
