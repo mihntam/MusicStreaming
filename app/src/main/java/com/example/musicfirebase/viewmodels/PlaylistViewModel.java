@@ -90,9 +90,9 @@ public class PlaylistViewModel extends ViewModel {
 
         // add the song ref to the existing playlist
         playlistRef.update("songs", FieldValue.arrayUnion(songRef))
-                .addOnSuccessListener(none -> Log.d(TAG, String.format("(%s) added to [%s]",
+                .addOnSuccessListener(none -> Log.d(TAG, String.format("(%s) đã thêm vào [%s]",
                         songRef.getId(), playlistRef.getId())))
-                .addOnFailureListener(e -> Log.w(TAG, String.format("Failed to append (%s) to [%s]",
+                .addOnFailureListener(e -> Log.w(TAG, String.format("Thất bại khi thêm (%s) vào [%s]",
                         songRef.getId(), playlistRef.getId()) , e));
     }
 
@@ -107,9 +107,9 @@ public class PlaylistViewModel extends ViewModel {
                 .document(docRef)
                 .delete()
                 .addOnSuccessListener(none -> Log.d(TAG,
-                        "Deleted " + docRef + " from Firestore"))
+                        "Đã xóa " + docRef + " từ Firestore"))
                 .addOnFailureListener(e -> Log.w(TAG,
-                        "Failed to delete " + docRef + " from Firestore", e));
+                        "Xóa thất bại " + docRef + " từ Firestore", e));
     }
 
     public PureLiveData<List<Playlist>> getPlaylists() {

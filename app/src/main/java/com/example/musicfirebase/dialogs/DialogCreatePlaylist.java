@@ -33,9 +33,9 @@ public class DialogCreatePlaylist extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setView(v)
-                .setPositiveButton("CREATE",
+                .setPositiveButton("Tạo",
                         (dialog, which) -> mDialogListener.onCreateSelected(titleField))
-                .setNegativeButton("CANCEL",
+                .setNegativeButton("Thoát",
                         (dialog, which) -> dialog.dismiss())
                 .setOnDismissListener(dialog -> titleField.getText().clear());
 

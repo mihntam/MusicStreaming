@@ -4,8 +4,11 @@ import android.media.MediaPlayer;
 
 import androidx.lifecycle.ViewModel;
 
+
+
 import com.example.musicfirebase.utils.PureLiveData;
 import com.example.musicfirebase.models.Song;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -181,7 +184,7 @@ public class PlayingViewModel extends ViewModel {
         int duration = mp.getDuration();
 
         if (duration == -1) {
-            throw new IllegalStateException(TAG + " MediaPlayer file URL is not valid.");
+            throw new IllegalStateException(TAG + " Url tệp hiện không đúng.");
         }
 
         return duration;
@@ -217,4 +220,5 @@ public class PlayingViewModel extends ViewModel {
     public void setPlayerListener(Listener listener) {
         this.mListener = listener;
     }
+
 }

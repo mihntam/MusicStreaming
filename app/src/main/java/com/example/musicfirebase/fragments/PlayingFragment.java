@@ -10,6 +10,10 @@ import android.media.session.MediaController;
 import android.media.session.PlaybackState;
 import android.os.Bundle;
 import android.os.Handler;
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 import android.support.v4.media.session.MediaControllerCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
@@ -133,6 +137,7 @@ public class PlayingFragment extends Fragment {
         @Override
         public void onAddToExistingPlaylistSelected() {
             boolean playlistsAreLoaded = !playlistVM.getPlaylists().getValue().isEmpty();
+            playlistVM.getPlaylistsFromDb(Query.Direction.ASCENDING);
 
             if (playlistsAreLoaded) {
                 playlistVM.getPlaylists().getValue();
@@ -258,8 +263,7 @@ public class PlayingFragment extends Fragment {
         B.playerRecycler.setAdapter(playerAdapter);
 
         String playingFromWhat = songVM.getSelectedPlaylist().getValue().getTitle();
-        B.playingFrom.setText(playingFromWhat.isEmpty() ? "All Songs" : playingFromWhat);
-
+        B.playingFrom.setText(playingFromWhat.isEmpty() ? "Thư viện" : playingFromWhat);
 
 
         return B.getRoot();
@@ -396,5 +400,6 @@ public class PlayingFragment extends Fragment {
         @Override
         public void onPrepareLoad(Drawable placeHolderDrawable) {
         }
+
     };
 }

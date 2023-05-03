@@ -14,7 +14,7 @@
         android:paddingStart="15dp"
         android:paddingTop="15dp"
         android:paddingBottom="10dp"
-        android:text="Tạo Playlist mới"
+        android:text="Tạo Album mới"
         android:textSize="24sp"
         android:textColorHint="@color/bright_lavender"/>
 
@@ -26,7 +26,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="12dp"
         android:fontFamily="@font/biko_regular"
-        android:hint="Tên playlist"
+        android:hint="Tên album"
         android:textColorHint="@color/white_lavender"
         android:textSize="20dp"
         android:backgroundTint="@color/white"/>
